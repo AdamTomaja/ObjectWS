@@ -1,5 +1,6 @@
 package pl.tomaja.objectws.model;
 
+import java.util.HashMap;
 import java.util.Map;
 
 public class ExecutionRequest {
@@ -40,6 +41,15 @@ public class ExecutionRequest {
 
 	public void setParameters(Map<String, Object> parameters) {
 		this.parameters = parameters;
+	}
+	
+	public ExecutionRequest addParameter(String name, Object value) {
+		if(parameters == null) {
+			parameters = new HashMap<>();
+		}
+		
+		parameters.put(name, value);
+		return this;
 	}
 
 	@Override

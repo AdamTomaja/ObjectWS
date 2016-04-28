@@ -58,9 +58,7 @@ public class ObjectWSWebSocketHandler extends TextWebSocketHandler {
 			ExecutionRequest resultRequest = new ExecutionRequest();
 			resultRequest.setObject("objectws");
 			resultRequest.setMethod("receiveError");
-			Map<String, Object> parameters = new HashMap<>();
-			parameters.put("error", result);
-			resultRequest.setParameters(parameters);
+			resultRequest.addParameter("error", result);
 			send(session, resultRequest);
 		}
 }
