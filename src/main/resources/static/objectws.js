@@ -28,24 +28,33 @@ ObjectWS = function(endpointUrl, onOpenCallback) {
 		
 		var object = objects[request.object];
 		if(!object) {
-			$this.execute("objectws", "receiveError", {error: "Cannot find the object: " + request.object});
+			$this.logAndExecuteError("Cannot find the object: " + request.object);
 			return;
 		}
 		
 		if(!object[request.method]) {
-			$this.execute("objectws", "receiveError", {error: "Cannot find the method: " + request.method});
+			$this.logAndExecuteError("Cannot find the " + request.object + "." + request.method + " method");
 			return;
 		}
 		
 		object[request.method](request);
 	}
 	
+	$this.executeError = function(error) {
+		$this.execute("objectws", "receiveError", {'error': error});
+	}
+
 	$this.execute = function(path, method, parameters) {
 		$this.ws.send(JSON.stringify({
 			'object': path,
 			'method': method,
 			'parameters': parameters
 		}));
+	}
+
+	$this.logAndExecuteError = function(error) {
+		console.error(error);
+		$this.executeError(error);
 	}
 	
 	$this.registerObject = function(name, object) {
