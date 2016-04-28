@@ -37,4 +37,9 @@ public class ExecutionEnvironment {
 	public void send(ExecutionRequest request) {
 		handler.send(session, request);
 	}
+
+	@Override
+	public String toString() {
+		return "ExecutionEnvironment [request=" + request + "]";
+	}
 }

@@ -14,6 +14,6 @@ public class TestObject {
 	
 	public void doSum(ExecutionEnvironment envs) {
 		LOGGER.info("Summing");
-		envs.send(new ExecutionRequest("sumResultReceiver", "receive", Arrays.asList(2 + 5)));
+		envs.send(new ExecutionRequest("application", "receiveSum", Arrays.asList(2 + 5)));
 	}
 }

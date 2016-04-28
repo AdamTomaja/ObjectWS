@@ -1,15 +1,15 @@
 <!DOCTYPE html>
 <html>
 <head>
-<meta charset="ISO-8859-1">
-<title>Insert title here</title>
+<meta charset="UTF-8">
+<title>ObjectWS test page</title>
 <script src="objectws.js"></script>
 </head>
 <body>
 <script>
 
-	var receiver = {
-		"receive": function(request) {
+	var applicationReceiver = {
+		"receiveSum": function(request) {
 			console.log("Received sum: ", request);
 		}	
 	};
@@ -22,10 +22,10 @@
 	
 	var ows = new ObjectWS("ws://localhost:8080/ws", function() {
 		console.log("OWS ready");
-		ows.execute("test", "doSums", [2, 5]);
+		ows.execute("test", "doSum", [2, 5]);
 	});
 	
-	ows.registerObject("sumResultReceiver", receiver);
+	ows.registerObject("application", applicationReceiver);
 	ows.registerObject("objectws", objectwsReceiver);
 </script>
 </body>

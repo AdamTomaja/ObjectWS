@@ -17,19 +17,17 @@ ObjectWS = function(endpointUrl, onOpenCallback) {
 	}
 	
 	$this.ws.onmessage = function(message) {
-		console.log("Message received", message.data);
 		var request = JSON.parse(message.data);
-		console.log(request);
 		var objects = $this.objects;
 		
 		var object = objects[request.object];
 		if(!object) {
-			$this.execute("objectws", "result", ["Cannot find the object: " + request.object]);
+			$this.execute("objectws", "receiveError", ["Cannot find the object: " + request.object]);
 			return;
 		}
 		
 		if(!object[request.method]) {
-			$this.execute("objectws", "result", ["Cannot find the methid: " + request.method]);
+			$this.execute("objectws", "receiveError", ["Cannot find the methid: " + request.method]);
 			return;
 		}
 		
