@@ -5,7 +5,6 @@ import javax.annotation.PostConstruct;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
 
-import pl.tomaja.objectws.object.DefaultOWSObject;
 import pl.tomaja.objectws.ws.WebSocketHandler;
 
 @Component

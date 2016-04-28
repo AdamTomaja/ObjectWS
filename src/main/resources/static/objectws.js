@@ -28,12 +28,12 @@ ObjectWS = function(endpointUrl, onOpenCallback) {
 		
 		var object = objects[request.object];
 		if(!object) {
-			$this.execute("objectws", "receiveError", ["Cannot find the object: " + request.object]);
+			$this.execute("objectws", "receiveError", {error: "Cannot find the object: " + request.object});
 			return;
 		}
 		
 		if(!object[request.method]) {
-			$this.execute("objectws", "receiveError", ["Cannot find the methid: " + request.method]);
+			$this.execute("objectws", "receiveError", {error: "Cannot find the method: " + request.method});
 			return;
 		}
 		

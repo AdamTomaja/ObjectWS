@@ -1,18 +1,18 @@
 package pl.tomaja.objectws.model;
 
-import java.util.List;
+import java.util.Map;
 
 public class ExecutionRequest {
 
 	private String object;
 	private String method;
-	private List<Object> parameters;
+	private Map<String, Object> parameters;
 	
 	public ExecutionRequest() {
 
 	}
 
-	public ExecutionRequest(String object, String method, List<Object> parameters) {
+	public ExecutionRequest(String object, String method, Map<String, Object> parameters) {
 		this.object = object;
 		this.method = method;
 		this.parameters = parameters;
@@ -34,11 +34,11 @@ public class ExecutionRequest {
 		this.method = method;
 	}
 	
-	public List<Object> getParameters() {
+	public Map<String, Object> getParameters() {
 		return parameters;
 	}
 
-	public void setParameters(List<Object> parameters) {
+	public void setParameters(Map<String, Object> parameters) {
 		this.parameters = parameters;
 	}
 

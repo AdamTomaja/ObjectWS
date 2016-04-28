@@ -3,7 +3,6 @@ package pl.tomaja.objectws.ws;
 import java.io.IOException;
 import java.lang.reflect.InvocationTargetException;
 import java.lang.reflect.Method;
-import java.util.Arrays;
 import java.util.HashMap;
 import java.util.Map;
 import java.util.Objects;
@@ -59,7 +58,9 @@ public class WebSocketHandler extends TextWebSocketHandler {
 			ExecutionRequest resultRequest = new ExecutionRequest();
 			resultRequest.setObject("objectws");
 			resultRequest.setMethod("receiveError");
-			resultRequest.setParameters(Arrays.asList(result));
+			Map<String, Object> parameters = new HashMap<>();
+			parameters.put("error", result);
+			resultRequest.setParameters(parameters);
 			send(session, resultRequest);
 		}
 }
