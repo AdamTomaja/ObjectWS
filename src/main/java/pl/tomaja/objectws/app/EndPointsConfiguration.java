@@ -16,5 +16,6 @@ public class EndPointsConfiguration {
 	@PostConstruct
 	public void init() {
 		handler.registerObject("test", new TestObject());
+		handler.registerObject("objectws", new ObjectWSObject());
 	}
 }

@@ -38,7 +38,6 @@ public class WebSocketHandler extends TextWebSocketHandler {
 
 	@Override
 	protected void handleTextMessage(WebSocketSession session, TextMessage message) throws Exception {
-		ExecutionResult result;
 		try {
 			ExecutionRequest request = gson.fromJson(message.getPayload(), ExecutionRequest.class);
 			ExecutionEnvironment environment = new ExecutionEnvironment(session, request, this);
@@ -46,18 +45,15 @@ public class WebSocketHandler extends TextWebSocketHandler {
 			LOGGER.info("Request: {}", request);
 			Object object = getObject(request);
 			execute(object, environment);
-			result = ExecutionResult.createOk();
 		} catch (Exception e) {
 			LOGGER.error("Unable to execute request", e);
-			result = ExecutionResult.createError(e);
+			ExecutionResult result = ExecutionResult.createError(e);
+			ExecutionRequest resultRequest = new ExecutionRequest();
+			resultRequest.setObject("objectws");
+			resultRequest.setMethod("receiveError");
+			resultRequest.setParameters(Arrays.asList(result));
+			send(session, resultRequest);
 		}
-		
-		ExecutionRequest resultRequest = new ExecutionRequest();
-		resultRequest.setObject("objectws");
-		resultRequest.setMethod("result");
-		resultRequest.setParameters(Arrays.asList(result));
-		
-		send(session, resultRequest);
 }
 	
 	private void execute(Object object, ExecutionEnvironment environment) {

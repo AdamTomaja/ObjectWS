@@ -20,6 +20,20 @@ ObjectWS = function(endpointUrl, onOpenCallback) {
 		console.log("Message received", message.data);
 		var request = JSON.parse(message.data);
 		console.log(request);
+		var objects = $this.objects;
+		
+		var object = objects[request.object];
+		if(!object) {
+			$this.execute("objectws", "result", ["Cannot find the object: " + request.object]);
+			return;
+		}
+		
+		if(!object[request.method]) {
+			$this.execute("objectws", "result", ["Cannot find the methid: " + request.method]);
+			return;
+		}
+		
+		object[request.method](request);
 	}
 	
 	$this.execute = function(path, method, parameters) {
