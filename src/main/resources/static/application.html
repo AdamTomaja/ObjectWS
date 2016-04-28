@@ -11,12 +11,20 @@
 	var applicationReceiver = {
 		"receiveSum": function(request) {
 			console.log("Received sum: ", request.parameters["result"]);
-		}	
+		},
+		
+		"setDescription": function(request) {
+			var description = request.parameters["description"];
+			console.log("Description received: " + description);
+			
+			document.write(description);
+		}
 	};
 	
 	var ows = new ObjectWS("ws://localhost:8080/ws", function() {
 		console.log("OWS ready");
 		ows.execute("application", "doSum", {a: 2, b: 3});
+		ows.execute("application", "getDescription", {});
 	});
 	
 	ows.registerObject("application", applicationReceiver);

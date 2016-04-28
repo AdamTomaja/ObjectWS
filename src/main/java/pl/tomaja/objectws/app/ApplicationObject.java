@@ -20,7 +20,7 @@ public class ApplicationObject {
 				.addParameter("result", a + b));
 	}
 	
-	public void getDescription() {
-		
+	public void getDescription(ExecutionEnvironment env) {
+		env.send(new ExecutionRequest("application", "setDescription").addParameter("description", "This is demo page of ObjectWS"));
 	}
 }

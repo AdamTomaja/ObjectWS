@@ -18,6 +18,11 @@ public class ExecutionRequest {
 		this.method = method;
 		this.parameters = parameters;
 	}
+	
+	public ExecutionRequest(String object, String method) {
+		this.object = object;
+		this.method = method;
+	}
 
 	public String getObject() {
 		return object;
