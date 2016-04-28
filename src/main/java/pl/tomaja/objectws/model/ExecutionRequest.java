@@ -8,6 +8,16 @@ public class ExecutionRequest {
 	private String method;
 	private List<Object> parameters;
 	
+	public ExecutionRequest() {
+
+	}
+
+	public ExecutionRequest(String object, String method, List<Object> parameters) {
+		this.object = object;
+		this.method = method;
+		this.parameters = parameters;
+	}
+
 	public String getObject() {
 		return object;
 	}
