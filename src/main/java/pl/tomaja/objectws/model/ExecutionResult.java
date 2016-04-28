@@ -1,5 +1,8 @@
 package pl.tomaja.objectws.model;
 
+/**
+ * @author Adam Tomaja
+ */
 public class ExecutionResult {
 
 	private ResultType type;

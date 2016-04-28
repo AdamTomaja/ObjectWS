@@ -7,6 +7,9 @@ import org.springframework.stereotype.Component;
 
 import pl.tomaja.objectws.ws.ObjectWSWebSocketHandler;
 
+/**
+ * @author Adam Tomaja
+ */
 @Component
 public class EndPointsConfiguration {
 

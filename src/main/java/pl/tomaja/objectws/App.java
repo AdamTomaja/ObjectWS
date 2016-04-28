@@ -3,6 +3,9 @@ package pl.tomaja.objectws;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 
+/**
+ * @author Adam Tomaja
+ */
 @SpringBootApplication
 public class App {
 

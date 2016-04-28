@@ -24,6 +24,9 @@ import pl.tomaja.objectws.model.ExecutionRequest;
 import pl.tomaja.objectws.model.ExecutionResult;
 import pl.tomaja.objectws.object.DefaultOWSObject;
 
+/**
+ * @author Adam Tomaja
+ */
 @Component
 public class ObjectWSWebSocketHandler extends TextWebSocketHandler {
 

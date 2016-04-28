@@ -6,6 +6,9 @@ import org.slf4j.LoggerFactory;
 import pl.tomaja.objectws.model.ExecutionEnvironment;
 import pl.tomaja.objectws.model.ExecutionRequest;
 
+/**
+ * @author Adam Tomaja
+ */
 public class ApplicationObject {
 
 	private final Logger LOGGER = LoggerFactory.getLogger(ApplicationObject.class);

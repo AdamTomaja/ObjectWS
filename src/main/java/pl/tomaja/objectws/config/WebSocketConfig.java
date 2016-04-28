@@ -8,6 +8,9 @@ import org.springframework.web.socket.config.annotation.WebSocketHandlerRegistry
 
 import pl.tomaja.objectws.ws.ObjectWSWebSocketHandler;
 
+/**
+ * @author Adam Tomaja
+ */
 @Configuration
 @EnableWebSocket
 public class WebSocketConfig implements WebSocketConfigurer {

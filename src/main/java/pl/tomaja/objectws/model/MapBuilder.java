@@ -3,6 +3,9 @@ package pl.tomaja.objectws.model;
 import java.util.HashMap;
 import java.util.Map;
 
+/**
+ * @author Adam Tomaja
+ */
 public class MapBuilder {
 
 	public static Map<Object, Object> newHashMap(Object ... params) {

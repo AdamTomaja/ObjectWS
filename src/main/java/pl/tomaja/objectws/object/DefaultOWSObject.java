@@ -5,6 +5,9 @@ import org.slf4j.LoggerFactory;
 
 import pl.tomaja.objectws.model.ExecutionEnvironment;
 
+/**
+ * @author Adam Tomaja
+ */
 public class DefaultOWSObject {
 	
 	private final Logger LOGGER = LoggerFactory.getLogger(DefaultOWSObject.class);

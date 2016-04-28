@@ -4,6 +4,9 @@ import org.springframework.web.socket.WebSocketSession;
 
 import pl.tomaja.objectws.ws.ObjectWSWebSocketHandler;
 
+/**
+ * @author Adam Tomaja
+ */
 public class ExecutionEnvironment {
 
 	private WebSocketSession session;
