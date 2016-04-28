@@ -13,7 +13,9 @@ public class TestObject {
 	private final Logger LOGGER = LoggerFactory.getLogger(TestObject.class);
 	
 	public void doSum(ExecutionEnvironment envs) {
-		LOGGER.info("Summing");
-		envs.send(new ExecutionRequest("application", "receiveSum", Arrays.asList(2 + 5)));
+		Double a = (Double) envs.getRequest().getParameters().get(0);
+		Double b = (Double) envs.getRequest().getParameters().get(1);
+		
+		envs.send(new ExecutionRequest("application", "receiveSum", Arrays.asList(a + b)));
 	}
 }

@@ -5,6 +5,12 @@ ObjectWS = function(endpointUrl, onOpenCallback) {
 	
 	console.log("Creating new ObjectWS on url : " + endpointUrl);
 	
+	var objectwsReceiver = {
+			"receiveError": function(request) {
+				console.error("Error received: ", request);
+			}
+		};
+	
 	$this.ws = new WebSocket(endpointUrl);
 	
 	$this.ws.onopen = function(event) {
@@ -45,4 +51,6 @@ ObjectWS = function(endpointUrl, onOpenCallback) {
 	$this.registerObject = function(name, object) {
 		$this.objects[name] = object;
 	}
+	
+	$this.registerObject("objectws", objectwsReceiver);
 }

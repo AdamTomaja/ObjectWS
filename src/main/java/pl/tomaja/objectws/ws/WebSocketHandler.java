@@ -8,6 +8,8 @@ import java.util.HashMap;
 import java.util.Map;
 import java.util.Objects;
 
+import javax.annotation.PostConstruct;
+
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.stereotype.Component;
@@ -21,6 +23,7 @@ import com.google.gson.Gson;
 import pl.tomaja.objectws.model.ExecutionEnvironment;
 import pl.tomaja.objectws.model.ExecutionRequest;
 import pl.tomaja.objectws.model.ExecutionResult;
+import pl.tomaja.objectws.object.DefaultOWSObject;
 
 @Component
 public class WebSocketHandler extends TextWebSocketHandler {
@@ -30,6 +33,11 @@ public class WebSocketHandler extends TextWebSocketHandler {
 	private final Gson gson = new Gson();
 	
 	private final Map<String, Object> objects = new HashMap<>();
+	
+	@PostConstruct
+	public void init() {
+		registerObject("objectws", new DefaultOWSObject());
+	}
 	
 	@Override
 	public void afterConnectionEstablished(WebSocketSession session) throws Exception {

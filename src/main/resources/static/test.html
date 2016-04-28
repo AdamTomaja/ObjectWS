@@ -14,19 +14,12 @@
 		}	
 	};
 	
-	var objectwsReceiver = {
-		"receiveError": function(request) {
-			console.error("Error", request);
-		}
-	};
-	
 	var ows = new ObjectWS("ws://localhost:8080/ws", function() {
 		console.log("OWS ready");
-		ows.execute("test", "doSum", [2, 5]);
+		ows.execute("test", "doSum", [12, 5]);
 	});
 	
 	ows.registerObject("application", applicationReceiver);
-	ows.registerObject("objectws", objectwsReceiver);
 </script>
 </body>
 </html>
