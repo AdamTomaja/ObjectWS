@@ -14,9 +14,11 @@ public class TestObject {
 	private final Logger LOGGER = LoggerFactory.getLogger(TestObject.class);
 	
 	public void doSum(ExecutionEnvironment envs) {
-		Double a = (Double) envs.getRequest().getParameters().get("a");
-		Double b = (Double) envs.getRequest().getParameters().get("b");
-		
+		Double a = envs.getDoubleParameter("a");
+		Double b = envs.getDoubleParameter("b");
+
+		LOGGER.info("Summing {} and {b}", a, b);
+
 		Map<String, Object> parameters = new HashMap<>();
 		parameters.put("result", a + b);
 		

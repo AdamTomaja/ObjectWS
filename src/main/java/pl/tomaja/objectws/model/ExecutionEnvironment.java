@@ -2,7 +2,7 @@ package pl.tomaja.objectws.model;
 
 import org.springframework.web.socket.WebSocketSession;
 
-import pl.tomaja.objectws.ws.WebSocketHandler;
+import pl.tomaja.objectws.ws.ObjectWSWebSocketHandler;
 
 public class ExecutionEnvironment {
 
@@ -10,9 +10,9 @@ public class ExecutionEnvironment {
 	
 	private ExecutionRequest request;
 	
-	private WebSocketHandler handler;
+	private ObjectWSWebSocketHandler handler;
 
-	public ExecutionEnvironment(WebSocketSession session, ExecutionRequest request, WebSocketHandler handler) {
+	public ExecutionEnvironment(WebSocketSession session, ExecutionRequest request, ObjectWSWebSocketHandler handler) {
 		this.session = session;
 		this.request = request;
 		this.handler = handler;
@@ -41,5 +41,13 @@ public class ExecutionEnvironment {
 	@Override
 	public String toString() {
 		return "ExecutionEnvironment [request=" + request + "]";
+	}
+	
+	public Double getDoubleParameter(String name) {
+		return (Double) getParameter(name);
+	}
+	
+	public Object getParameter(String name) {
+		return request.getParameters().get(name);
 	}
 }

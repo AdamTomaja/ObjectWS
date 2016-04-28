@@ -5,16 +5,16 @@ import javax.annotation.PostConstruct;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
 
-import pl.tomaja.objectws.ws.WebSocketHandler;
+import pl.tomaja.objectws.ws.ObjectWSWebSocketHandler;
 
 @Component
 public class EndPointsConfiguration {
 
 	@Autowired
-	private WebSocketHandler handler;
+	private ObjectWSWebSocketHandler handler;
 	
 	@PostConstruct
 	public void init() {
-		handler.registerObject("test", new TestObject());
+		handler.registerObject("application", new TestObject());
 	}
 }

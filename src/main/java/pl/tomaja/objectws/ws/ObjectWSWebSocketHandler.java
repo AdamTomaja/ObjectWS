@@ -25,9 +25,9 @@ import pl.tomaja.objectws.model.ExecutionResult;
 import pl.tomaja.objectws.object.DefaultOWSObject;
 
 @Component
-public class WebSocketHandler extends TextWebSocketHandler {
+public class ObjectWSWebSocketHandler extends TextWebSocketHandler {
 
-	private final Logger LOGGER = LoggerFactory.getLogger(WebSocketHandler.class);
+	private final Logger LOGGER = LoggerFactory.getLogger(ObjectWSWebSocketHandler.class);
 	
 	private final Gson gson = new Gson();
 	

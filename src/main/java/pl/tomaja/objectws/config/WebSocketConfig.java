@@ -6,14 +6,14 @@ import org.springframework.web.socket.config.annotation.EnableWebSocket;
 import org.springframework.web.socket.config.annotation.WebSocketConfigurer;
 import org.springframework.web.socket.config.annotation.WebSocketHandlerRegistry;
 
-import pl.tomaja.objectws.ws.WebSocketHandler;
+import pl.tomaja.objectws.ws.ObjectWSWebSocketHandler;
 
 @Configuration
 @EnableWebSocket
 public class WebSocketConfig implements WebSocketConfigurer {
 
 	@Autowired
-	private WebSocketHandler handler;
+	private ObjectWSWebSocketHandler handler;
 	
 	@Override
 	public void registerWebSocketHandlers(WebSocketHandlerRegistry registry) {
